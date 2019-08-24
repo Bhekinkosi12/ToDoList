@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ToDoList.Views.ItemDetailPage"
+             Title="">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancelar" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Guardar" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="20" Padding="15">
+
+        <Entry Text="{Binding Item.Id}" d:Text="Item id" FontSize="Small" IsVisible="False"/>
+
+        <Label Text="Título:" FontSize="Medium" />
+        <Entry Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
+        
+        <Label Text="Descripción:" FontSize="Medium" />
+        <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />
+        
+        <StackLayout Orientation="Horizontal">
+            <Switch IsToggled="{Binding Item.Completed}"></Switch>
+            <Label>Completada</Label>
+        </StackLayout>
+
+        <Button BackgroundColor="Red" Text="Eliminar Tarea" Clicked="Delete_Clicked"/>
+    </StackLayout>
+    
+</ContentPage>
